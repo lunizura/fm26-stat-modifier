@@ -14,9 +14,12 @@ venv/
 .venv/
 env/
 
-# IDE and OS files
+# IDE, cache, and OS files
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 *.log
+.cache/
+*.bak
+
