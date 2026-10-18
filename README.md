@@ -84,6 +84,12 @@ python -m unittest discover -s tests -v
 
 ---
 
+## Repository Topics & Keywords
+
+`football-manager-26` | `fm26` | `memory-editor` | `reverse-engineering` | `customtkinter` | `win32-api` | `game-modding` | `zstandard-parser` | `python-gui`
+
+---
+
 ## Disclaimer
 
 This project is an independent open-source software engineering and memory research tool created strictly for educational and single-player offline use.
