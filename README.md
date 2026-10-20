@@ -1,5 +1,7 @@
 # Football Manager 26 Tactical Scout & Live Stat Modifier
 
+[![CI](https://github.com/lunizura/fm26-stat-modifier/actions/workflows/ci.yml/badge.svg)](https://github.com/lunizura/fm26-stat-modifier/actions)
+[![Release](https://img.shields.io/github/v/release/lunizura/fm26-stat-modifier?color=10B981&label=release&style=for-the-badge)](https://github.com/lunizura/fm26-stat-modifier/releases)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![GUI](https://img.shields.io/badge/UI-CustomTkinter-10B981?style=for-the-badge)](https://github.com/TomSchimansky/CustomTkinter)
