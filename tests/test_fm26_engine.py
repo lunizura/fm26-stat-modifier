@@ -103,6 +103,54 @@ class TestFM26SchemaAndEngine(unittest.TestCase):
         self.assertEqual(normalize_name("Martin Ødegaard"), "martin odegaard")
         self.assertEqual(normalize_name("Vítor Machado Ferreira"), "vitor machado ferreira")
 
+    def test_scout_exporter_and_comparison(self) -> None:
+        from fm_scout import export_player_json, export_roster_csv, compare_players
+        import tempfile
+
+        p1 = {
+            "uid": 735107,
+            "name": "Cristiano Ronaldo",
+            "nation": "Portugal",
+            "club": "Al-Nassr",
+            "age": 41,
+            "ca": 165,
+            "pa": 195,
+            "attributes": {"Finishing": 19, "Pace": 15, "Determination": 20, "Composure": 18}
+        }
+        p2 = {
+            "uid": 88031341,
+            "name": "Kylian Mbappe",
+            "nation": "France",
+            "club": "Real Madrid",
+            "age": 27,
+            "ca": 188,
+            "pa": 197,
+            "attributes": {"Finishing": 18, "Pace": 20, "Determination": 16, "Composure": 17}
+        }
+
+        with tempfile.TemporaryDirectory() as td:
+            # 1. JSON Export
+            json_file = Path(td) / "cr7.json"
+            export_player_json(p1, json_file)
+            self.assertTrue(json_file.exists())
+            self.assertIn("Cristiano Ronaldo", json_file.read_text(encoding="utf-8"))
+
+            # 2. CSV Export
+            csv_file = Path(td) / "scout_roster.csv"
+            export_roster_csv([p1, p2], csv_file)
+            self.assertTrue(csv_file.exists())
+            csv_lines = csv_file.read_text(encoding="utf-8").splitlines()
+            self.assertEqual(len(csv_lines), 3)
+
+        # 3. Comparison
+        cmp = compare_players(p1, p2)
+        self.assertEqual(cmp["total_attributes_compared"], 4)
+        self.assertEqual(cmp["attribute_matrix"]["Pace"]["advantage"], "Kylian Mbappe")
+        self.assertEqual(cmp["attribute_matrix"]["Finishing"]["advantage"], "Cristiano Ronaldo")
+        self.assertEqual(cmp["player_a_wins"], 3)
+        self.assertEqual(cmp["player_b_wins"], 1)
+        self.assertEqual(cmp["overall_winner"], "Cristiano Ronaldo")
+
 
 if __name__ == "__main__":
     unittest.main()
