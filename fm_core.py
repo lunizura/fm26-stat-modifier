@@ -33,7 +33,6 @@ from fm_schema import (
     SER_PERCEIVED_CA_OFFSET,
     SER_POS_OFFSET,
     SER_WORLD_REP_OFFSET,
-    to_raw_attr,
 )
 
 PROCESS_QUERY_INFORMATION = 0x0400

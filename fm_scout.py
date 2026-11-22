@@ -7,9 +7,8 @@ from __future__ import annotations
 import csv
 import json
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 
-from fm_schema import ATTRIBUTE_DEFS, to_display_attr
 
 
 def export_player_json(player: Dict[str, Any], filepath: str | Path) -> str:

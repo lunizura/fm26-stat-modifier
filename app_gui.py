@@ -27,8 +27,6 @@ from fm_schema import (
     ATTRS_BY_CATEGORY,
     POSITION_DEFS,
     PlayerRecord,
-    to_display_attr,
-    to_raw_attr,
 )
 from ui_components import (
     ACCENT_AMBER,
@@ -42,7 +40,6 @@ from ui_components import (
     BG_CARD,
     BG_INPUT,
     BG_PANEL,
-    BORDER_ACTIVE,
     BORDER_SUBTLE,
     PlayerResultCard,
     TEXT_DIM,

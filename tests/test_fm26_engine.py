@@ -17,7 +17,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from fm_core import PlayerMemoryTarget, apply_preset_to_player
 from fm_database import FMDatabase, normalize_name
 from fm_schema import (
-    ATTRIBUTE_DEFS,
     CPP_ATTR_OFFSET,
     CPP_CA_OFFSET,
     CPP_PA_OFFSET,
